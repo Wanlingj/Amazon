@@ -50,6 +50,7 @@ public:
         int x = 0, y = 0, len = 0, level = 0;
         while (!queue.empty()) {
             len = queue.size();
+            //level is the number of steps taken
             level++;
             for (int i = 0; i < len; i++) {
                 pt = queue.front();
