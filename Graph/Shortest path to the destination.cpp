@@ -44,14 +44,14 @@ public:
         int m = targetMap[0].size();
         int dx[4] = {-1, 0, 0, 1};
         int dy[4] = {0, -1, 1, 0};
-        queue<std::pair<int, int>> queue;
+        queue<pair<int, int>> queue;
         queue.push({0, 0});
         pair<int, int> pt;
         int x = 0, y = 0, len = 0, level = 0;
         while (!queue.empty()) {
             len = queue.size();
-            //level is the number of steps taken
             level++;
+            //iterate through all possible directions
             for (int i = 0; i < len; i++) {
                 pt = queue.front();
                 queue.pop();
@@ -64,7 +64,9 @@ public:
                     if (targetMap[x][y] == END) {
                         return level;
                     }  
+                    //if haven't been to x,y before, push
                     queue.push({x, y});
+                    //mark as visited
                     targetMap[x][y] = VISIT;
                 }
             }
